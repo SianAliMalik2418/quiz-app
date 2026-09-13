@@ -16,8 +16,8 @@ export default async function SubjectPage(
         <Link href="/" className="text-xl text-slate-400">
           ‹
         </Link>
-        <h1 className="text-xl font-bold">
-          {subject.emoji} {subject.title}
+        <h1 className="flex items-center gap-2 text-xl font-bold">
+          <span className="text-4xl">{subject.emoji}</span> {subject.title}
         </h1>
       </header>
 

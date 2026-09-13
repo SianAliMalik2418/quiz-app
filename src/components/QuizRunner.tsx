@@ -4,6 +4,14 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Chapter } from "@/lib/types";
 import { saveScore } from "@/lib/scores";
+import { playCorrect, playIncorrect } from "@/lib/sound";
+
+function resultEmoji(pct: number) {
+  if (pct >= 90) return "🏆";
+  if (pct >= 70) return "🎉";
+  if (pct >= 50) return "👍";
+  return "💪";
+}
 
 export default function QuizRunner({
   subjectId,
@@ -32,7 +40,12 @@ export default function QuizRunner({
     if (selected !== null) return;
     setSelected(optionIndex);
     const isCorrect = optionIndex === question.correctIndex;
-    if (isCorrect) setScore((s) => s + 1);
+    if (isCorrect) {
+      setScore((s) => s + 1);
+      playCorrect();
+    } else {
+      playIncorrect();
+    }
     setAnswers((prev) => {
       const next = [...prev];
       next[index] = optionIndex;
@@ -59,6 +72,7 @@ export default function QuizRunner({
   }
 
   if (finished) {
+    const pct = Math.round((score / total) * 100);
     return (
       <main className="flex flex-1 flex-col gap-6">
         <header className="pt-4 text-center">
@@ -69,12 +83,11 @@ export default function QuizRunner({
         </header>
 
         <div className="flex flex-col items-center gap-2 rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+          <div className="text-6xl">{resultEmoji(pct)}</div>
           <div className="text-4xl font-extrabold text-indigo-600">
             {score}/{total}
           </div>
-          <div className="text-sm text-slate-500">
-            {Math.round((score / total) * 100)}% correct
-          </div>
+          <div className="text-sm text-slate-500">{pct}% correct</div>
         </div>
 
         <div className="flex flex-col gap-3">
@@ -90,8 +103,11 @@ export default function QuizRunner({
                     : "bg-red-50 ring-red-200"
                 }`}
               >
-                <div className="font-medium">
-                  {i + 1}. {q.question}
+                <div className="flex gap-2 font-medium">
+                  <span className="text-lg leading-none">{isCorrect ? "✅" : "❌"}</span>
+                  <span>
+                    {i + 1}. {q.question}
+                  </span>
                 </div>
                 {!isCorrect && (
                   <div className="mt-1 text-slate-600">
@@ -154,11 +170,14 @@ export default function QuizRunner({
           const isSelected = selected === i;
           const isCorrectOption = i === question.correctIndex;
           let style = "bg-white ring-slate-200 active:scale-[0.98]";
+          let icon: string | null = null;
           if (selected !== null) {
             if (isCorrectOption) {
               style = "bg-green-50 ring-green-400";
+              icon = "✅";
             } else if (isSelected) {
               style = "bg-red-50 ring-red-400";
+              icon = "❌";
             } else {
               style = "bg-white ring-slate-200 opacity-60";
             }
@@ -168,9 +187,10 @@ export default function QuizRunner({
               key={i}
               onClick={() => handleSelect(i)}
               disabled={selected !== null}
-              className={`rounded-xl p-4 text-left text-sm font-medium ring-1 transition ${style}`}
+              className={`flex items-center justify-between gap-3 rounded-xl p-4 text-left text-sm font-medium ring-1 transition ${style}`}
             >
-              {option}
+              <span>{option}</span>
+              {icon && <span className="text-xl leading-none">{icon}</span>}
             </button>
           );
         })}

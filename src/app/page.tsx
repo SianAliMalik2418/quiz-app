@@ -21,7 +21,7 @@ export default function Home() {
               href={`/subject/${subject.id}`}
               className="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 active:scale-[0.98] transition"
             >
-              <span className="text-3xl">{subject.emoji}</span>
+              <span className="text-5xl">{subject.emoji}</span>
               <div className="flex-1">
                 <div className="text-lg font-semibold">{subject.title}</div>
                 <div className="text-sm text-slate-500">
