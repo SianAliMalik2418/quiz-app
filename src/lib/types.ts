@@ -15,4 +15,6 @@ export type Subject = {
   title: string;
   emoji: string;
   chapters: Chapter[];
+  /** Hand-picked, most-important questions for exam-day revision (not a random sample). */
+  combinedQuestions?: MCQ[];
 };

@@ -1100,4 +1100,106 @@ export const computer: Subject = {
       ],
     },
   ],
+  combinedQuestions: [
+    {
+      question: "Emerging technology mainly describes:",
+      options: ["A new technology, or the continuing development of an existing one", "Only hardware that has stopped working", "A technology used only in hospitals", "A type of computer virus"],
+      correctIndex: 0,
+    },
+    {
+      question: "Who invented the first telephone, and in what year?",
+      options: ["Alexander Graham Bell, in 1876", "D. H. Ring, in 1965", "Charles Hull, in 1984", "Tim Berners-Lee, in 1989"],
+      correctIndex: 0,
+    },
+    {
+      question: "Biometrics verifies identity using:",
+      options: ["Unique physical characteristics such as fingerprints or iris patterns", "A written password only", "A postal address", "A computer's IP address"],
+      correctIndex: 0,
+    },
+    {
+      question: "Which of these best describes the five types of robots covered in Chapter 1: pre-programmed, humanoid, autonomous, teleoperated, and augmenting?",
+      options: ["They are classified by how independently they operate and what role they perform", "They are all identical machines with different names", "They only differ in colour", "They are classified by their price only"],
+      correctIndex: 0,
+    },
+    {
+      question: "Artificial Intelligence (AI) is best described as a branch of computer science that aims to:",
+      options: ["Create an intelligent system that learns with experience", "Repair broken hardware automatically", "Print 3D objects", "Translate Morse code"],
+      correctIndex: 0,
+    },
+    {
+      question: "The difference between Augmented Reality (AR) and Virtual Reality (VR) is mainly that:",
+      options: ["AR blends digital content into the real world, while VR fully immerses the user in a virtual one", "AR and VR are exactly the same technology", "AR requires a headset while VR never does", "VR is only used for hologram displays"],
+      correctIndex: 0,
+    },
+    {
+      question: "3D printing builds objects using an additive process, meaning it:",
+      options: ["Lays down successive layers of material until the object is formed", "Cuts material away from a solid block", "Melts an object from a 2D photograph", "Only works with liquid ink"],
+      correctIndex: 0,
+    },
+    {
+      question: "The Quick Access Toolbar in MS Word gives fast access to:",
+      options: ["SAVE, UNDO, REDO, and NEW file", "Only the print command", "Only the spellchecker", "Only page margins"],
+      correctIndex: 0,
+    },
+    {
+      question: "In MS Word, the shortcut CTRL + B is used to:",
+      options: ["Make selected text Bold", "Make selected text Italic", "Underline selected text", "Justify a paragraph"],
+      correctIndex: 0,
+    },
+    {
+      question: "The default page margin in MS Word is:",
+      options: ["1 inch", "2 inch", "2.54 inch", "1.95 inch"],
+      correctIndex: 0,
+    },
+    {
+      question: "In a table, the smallest unit used to hold data is called a:",
+      options: ["Cell", "Ribbon", "Gutter", "Placeholder"],
+      correctIndex: 0,
+    },
+    {
+      question: "The two major font families are Serif and Sans Serif — which is the most common example of each?",
+      options: ["Times New Roman (Serif) and Arial (Sans Serif)", "Arial (Serif) and Calibri (Sans Serif)", "Comic Sans (Serif) and Georgia (Sans Serif)", "Calibri (Serif) and Times New Roman (Sans Serif)"],
+      correctIndex: 0,
+    },
+    {
+      question: "By default, when a new blank presentation is created, PowerPoint displays:",
+      options: ["The Title Slide", "The Slide Sorter view", "A blank grey screen with no placeholders", "The Animation Pane"],
+      correctIndex: 0,
+    },
+    {
+      question: "Which type of PowerPoint animation introduces an object onto a slide?",
+      options: ["Entrance", "Emphasis", "Exit", "Motion Path"],
+      correctIndex: 0,
+    },
+    {
+      question: "To save a PowerPoint file as an executable slide show, users should choose which file type in Save As?",
+      options: ["PowerPoint Show", "PDF", "PNG Portable Network Graphics Format", "PowerPoint Template"],
+      correctIndex: 0,
+    },
+    {
+      question: "The World Wide Web was developed in 1989 by:",
+      options: ["Tim Berners-Lee", "Alexander Graham Bell", "Charles Hull", "Elon Musk"],
+      correctIndex: 0,
+    },
+    {
+      question: "In an email address, the username and the computer's domain name are separated by which symbol?",
+      options: ["@", "#", "&", "%"],
+      correctIndex: 0,
+    },
+    {
+      question: "Which THREE protocols are commonly used to deliver email over the Internet?",
+      options: ["SMTP, POP, and IMAP", "HTTP, FTP, and SSH", "USB, HDMI, and SATA", "TCP, UDP, and DNS"],
+      correctIndex: 0,
+    },
+    {
+      question: "Bcc, when composing an email, is used to:",
+      options: ["Send a copy to someone without other recipients seeing their address", "Attach a file to the email", "Print the email automatically", "Delete the email permanently"],
+      correctIndex: 0,
+    },
+    {
+      question: "A search engine is best described as a program that:",
+      options: ["Searches the web for specified keywords and returns a list of matching web pages", "Only stores email attachments", "Only works without an internet connection", "Only translates between languages"],
+      correctIndex: 0,
+    },
+  ],
 };

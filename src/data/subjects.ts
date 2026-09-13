@@ -17,8 +17,9 @@ function pickEvenly<T>(arr: T[], count: number): T[] {
 
 function buildCombinedChapter(subject: Subject): Chapter | null {
   if (subject.chapters.length < 2) return null;
-  const perChapter = 8;
-  const questions = subject.chapters.flatMap((c) => pickEvenly(c.questions, perChapter));
+  const questions =
+    subject.combinedQuestions ??
+    subject.chapters.flatMap((c) => pickEvenly(c.questions, 8));
   return {
     id: COMBINED_CHAPTER_ID,
     title: "Combined Revision (All Chapters)",
