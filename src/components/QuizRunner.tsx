@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import type { Chapter } from "@/lib/types";
 import { saveScore } from "@/lib/scores";
 import { playCorrect, playIncorrect } from "@/lib/sound";
+import { shuffleQuestions } from "@/lib/shuffle";
 
 function resultEmoji(pct: number) {
   if (pct >= 90) return "🏆";
@@ -22,6 +23,7 @@ export default function QuizRunner({
   subjectTitle: string;
   chapter: Chapter;
 }) {
+  const [questions, setQuestions] = useState(() => shuffleQuestions(chapter.questions));
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [score, setScore] = useState(0);
@@ -30,8 +32,8 @@ export default function QuizRunner({
   );
   const [finished, setFinished] = useState(false);
 
-  const question = chapter.questions[index];
-  const total = chapter.questions.length;
+  const question = questions[index];
+  const total = questions.length;
   const isLast = index === total - 1;
 
   const progressPct = useMemo(() => Math.round((index / total) * 100), [index, total]);
@@ -64,6 +66,7 @@ export default function QuizRunner({
   }
 
   function handleRetry() {
+    setQuestions(shuffleQuestions(chapter.questions));
     setIndex(0);
     setSelected(null);
     setScore(0);
@@ -91,7 +94,7 @@ export default function QuizRunner({
         </div>
 
         <div className="flex flex-col gap-3">
-          {chapter.questions.map((q, i) => {
+          {questions.map((q, i) => {
             const userAnswer = answers[i];
             const isCorrect = userAnswer === q.correctIndex;
             return (
