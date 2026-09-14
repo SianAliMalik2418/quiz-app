@@ -1,5 +1,6 @@
 import { computer } from "@/data/computer";
 import { geography } from "@/data/geography";
+import { history } from "@/data/history";
 import { science } from "@/data/science";
 import type { Chapter, Subject } from "@/lib/types";
 
@@ -27,7 +28,7 @@ function buildCombinedChapter(subject: Subject): Chapter | null {
   };
 }
 
-export const subjects: Subject[] = [geography, science, computer].map((subject) => {
+export const subjects: Subject[] = [geography, science, computer, history].map((subject) => {
   const combined = buildCombinedChapter(subject);
   return combined ? { ...subject, chapters: [...subject.chapters, combined] } : subject;
 });
